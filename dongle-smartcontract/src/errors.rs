@@ -85,3 +85,5 @@ pub enum ContractError {
     // Normalized name duplicate
     DuplicateProjectName = 60,
 }
+
+pub type Error = ContractError;
