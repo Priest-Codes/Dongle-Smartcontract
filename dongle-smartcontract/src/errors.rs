@@ -4,56 +4,86 @@ use soroban_sdk::contracterror;
 #[derive(Copy, Clone, Debug, Eq, PartialEq, PartialOrd, Ord)]
 #[repr(u32)]
 pub enum ContractError {
-    ProjectNotFound = 1,
-    Unauthorized = 2,
-    ProjectAlreadyExists = 3,
-    InvalidRating = 4,
-    ReviewNotFound = 5,
-    DuplicateReview = 6,
-    NotReviewOwner = 7,
-    VerificationNotFound = 8,
-    InvalidStatus = 9,
-    AdminOnly = 10,
-    FeeConfigNotSet = 11,
-    TreasuryNotSet = 12,
-    InsufficientFee = 13,
-    InvalidProjectData = 14,
-    ProjectNameTooLong = 15,
-    InvalidNameFormat = 16,
-    CannotRemoveLastAdmin = 17,
-    ProjectTooYoung = 18,
-    InvalidTag = 19,
-    TooManyTags = 20,
-    InvalidSocialLink = 21,
-    TooManySocialLinks = 22,
-    AlreadyReported = 23,
-    AdminNotFound = 24,
-    InvalidProjectName = 26,
-    InvalidProjectDesc = 27,
-    InvalidCategory = 28,
-    ProjectDescTooLong = 29,
-    MaxProjectsExceeded = 30,
-    InvalidWebsite = 31,
-    InvalidLogoCid = 32,
-    InvalidMetaCid = 33,
-    TransferNotFound = 36,
-    NotTransferRecip = 38,
-    ReviewsDisabled = 39,
-    ReviewAlreadyReported = 40,
-    ReviewAlreadyHidden = 41,
-    ReviewNotHidden = 42,
-    AlreadyArchived = 43,
-    ProjectNotArchived = 44,
-    CollectionNotFound = 46,
-    CollectionExists = 47,
-    AlreadyInCollection = 48,
-    AlreadyLinked = 49,
-    CannotLinkToSelf = 50,
-    AlreadyFollowing = 51,
-    NotFollowing = 52,
-    VerifiedFieldFrozen = 53,
+    AlreadyInitialized = 1,
+    NotInitialized = 2,
+    OnlyAdmin = 3,
+    ProjectNotFound = 4,
+    NotProjectOwner = 5,
+    SlugAlreadyExists = 6,
+    InvalidSlug = 7,
+    MaxProjectsExceeded = 8,
+    MaxReviewsPerUser = 9,
+    MaxReviewsPerProject = 10,
+    ReviewNotFound = 11,
+    AlreadyReviewed = 12,
+    InvalidCategory = 13,
+    InvalidUrl = 14,
+    InvalidCid = 15,
+    InvalidBountyUrl = 16,
+    InvalidBountyCid = 17,
+    InvalidWebsite = 18,
+    InvalidLogo = 19,
+    InvalidMetadata = 20,
+    InvalidTags = 21,
+    InvalidSocialLinks = 22,
+    InvalidLauchTimestamp = 23,
+    InvalidLicense = 24,
+    AlreadyMaintainer = 25,
+    NotMaintainer = 26,
+    OnlyMaintainerOrOwner = 27,
+    InvalidMaintainer = 28,
+    CantRemoveSelf = 29,
+    IndexOutOfBounds = 30,
+    NotInIndex = 31,
+
+    // Project registration and updates
+    ProjectAlreadyExists = 32,
+    InvalidProjectName = 33,
+    ProjectNameTooLong = 34,
+    InvalidProjectDesc = 35,
+    ProjectDescTooLong = 36,
+    InvalidProjectData = 37,
+    InvalidProjectSlug = 38,
+    InvalidProjectSlugLen = 39,
+    InvalidInput = 40,
+
+    // CID-specific
+    InvalidLogoCid = 41,
+    InvalidMetaCid = 42,
+
+    // Authorization / access control
+    Unauthorized = 43,
+    AdminOnly = 44,
+    AdminNotFound = 45,
+
+    // Verification workflow
+    VerificationNotFound = 46,
+    VerificationNotPend = 47,
+    InvalidStatus = 48,
+    ProjectTooYoung = 49,
+    VerifiedFieldFrozen = 50,
+
+    // Archive / reactivation
+    AlreadyArchived = 51,
+    ProjectNotArchived = 52,
+
+    // Ownership transfer
+    TransferNotFound = 53,
+    NotTransferRecip = 54,
+
+    // Reserved names
     ReservedName = 55,
-    OwnerCannotReview = 57,
+
+    // Fee
+    FeeMissing = 56,
+    FeeInvalid = 57,
+    FeeAlreadyPaid = 58,
+
+    // Security contact
+    SecurityContactInvalid = 59,
+
+    // Normalized name duplicate
+    DuplicateProjectName = 60,
 }
 
 pub type Error = ContractError;
