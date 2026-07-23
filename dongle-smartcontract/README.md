@@ -1,4 +1,6 @@
-# Dongle Smart Contract
+# Dongle Smart Contract — Detailed API Reference
+
+> **📌 Getting Started?** Start with the [root README](../README.md) for an overview. This document provides comprehensive API documentation and usage examples.
 
 A Soroban smart contract for decentralized project registry, reviews, and verification on the Stellar network.
 
